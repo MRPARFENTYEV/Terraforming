@@ -24,7 +24,7 @@ sudo mv terraform /usr/local/bin/terraform
 
 ```
 
-![[Pasted image 20251221155911.png]]
+![](pictures/Pasted image 20251221155911.png)
 
 **В каком terraform-файле, согласно этому .gitignore, допустимо сохранить личную, секретную информацию?(логины,пароли,ключи,токены итд)**
 Ответ:  
@@ -39,24 +39,25 @@ cat terraform.tfstate
 ```
 
 Смотрю пароль
-![[Pasted image 20251221161221.png]]
+![](pictures/Pasted image 20251221161221.png)
 
 пароль - "result": "k98vyiYMArOWxqlk"
 
 **Раскомментируйте блок кода, примерно расположенный на строчках 29–42 файла main.tf. Выполните команду `terraform validate`. Объясните, в чём заключаются намеренно допущенные ошибки. Исправьте их.**
-![[Pasted image 20251221171335.png]]написано: строчка 25 - недостает имя ресурса. Все ресурсовые составляющие должны иметь в описании 2 составляющих тип и название
+![](pictures/Pasted image 20251221171335.png)  
+написано: строчка 25 - недостает имя ресурса. Все ресурсовые составляющие должны иметь в описании 2 составляющих тип и название
 
 строка 30 - название должно начинаться с буквы или __ (подчеркивания). Имя должно состоять из букв,цифр,подчеркиваний, тире. 
 
 **Исправляю**  
 в resource "docker_image" { дописываю image = docker_image.nginx.image_id}  
-![[Pasted image 20251221175133.png]]
+![](pictures/Pasted image 20251221175133.png)
 
 **- Выполните код. В качестве ответа приложите: исправленный фрагмент кода и вывод команды `docker ps`.**
 
 ввожy ``` terraform apply```  
-![[Pasted image 20251221175603.png]]
-![[Pasted image 20251221175633.png]]
+![](pictures/Pasted image 20251221175603.png)
+![](pictures/Pasted image 20251221175633.png)
 
   **`terraform apply -auto-approve`**
 - Строит план
@@ -79,7 +80,7 @@ resource "docker_container" "nginx_container" {
   image = docker_image.nginx.image_id
   name  = "example_${random_password.random_string.result}"  # <- ИМЯ КОНТЕЙНЕРА
 ```
-![[Pasted image 20251221235118.png]]  
+![](pictures/Pasted image 20251221235118.png) 
 Вывод - ```
 -auto-approve``` нужен при автоматическом деплое, когда нет того кто введет YES
 
@@ -88,8 +89,8 @@ resource "docker_container" "nginx_container" {
 terraform destroy -auto-approve
 
 ```
-![[Pasted image 20251221235614.png]]
-![[Pasted image 20251221235723.png]]  
+![](pictures/Pasted image 20251221235614.png)  
+![](pictures/Pasted image 20251221235723.png)  
 
 **Объясните, почему при этом не был удалён docker-образ nginx:latest**
 ```
