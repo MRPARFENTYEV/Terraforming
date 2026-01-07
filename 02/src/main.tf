@@ -14,9 +14,9 @@ data "yandex_compute_image" "ubuntu" {
 }
 resource "yandex_compute_instance" "platform" {
   name        = "netology-develop-platform-web"
-  platform_id = "standart-v4"
+  platform_id = "standard-v1"
   resources {
-    cores         = 1
+    cores         = 2
     memory        = 1
     core_fraction = 5
   }
@@ -38,4 +38,9 @@ resource "yandex_compute_instance" "platform" {
     ssh-keys           = "ubuntu:${var.vms_ssh_root_key}"
   }
 
+
+
+}
+output "platform_public_ip" {
+  value = yandex_compute_instance.platform.network_interface[0].nat_ip_address
 }

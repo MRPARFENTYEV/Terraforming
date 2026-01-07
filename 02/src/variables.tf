@@ -28,11 +28,15 @@ variable "vpc_name" {
   description = "VPC network & subnet name"
 }
 
+variable "service_account_key_file" {
+  type        = string
+  description = "Path to static key JSON"
+}
+
 
 ###ssh vars
 
 variable "vms_ssh_root_key" {
   type        = string
-  default     = "<your_ssh_ed25519_key>"
   description = "ssh-keygen -t ed25519"
 }

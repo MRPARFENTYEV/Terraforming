@@ -10,3 +10,7 @@
 
 # own secret vars store.
 personal.auto.tfvars
+
+public_key.pub
+authorized_key.json
+terraform.tfvars
