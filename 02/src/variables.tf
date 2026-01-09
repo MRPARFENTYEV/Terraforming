@@ -59,17 +59,48 @@ variable "vm_web_platform_id" {
   default = "standard-v1"
 }
 
-variable "vm_web_cores" {
-  type    = number
-  default = 2
+# variable "vm_web_cores" {
+#   type    = number
+#   default = 2
+# }
+#
+# variable "vm_web_memory" {
+#   type    = number
+#   default = 1
+# }
+#
+# variable "vm_web_core_fraction" {
+#   type    = number
+#   default = 5
 }
 
-variable "vm_web_memory" {
-  type    = number
-  default = 1
+variable "vms_resources" {
+  description = "Resources configuration for web and db VMs"
+  type = map(object({
+    cores         = number
+    memory        = number
+    core_fraction = number
+    hdd_size      = number
+    hdd_type      = string
+  }))
+  default = {
+    web = {
+      cores         = 2
+      memory        = 2
+      core_fraction = 5
+      hdd_size      = 10
+      hdd_type      = "network-hdd"
+    },
+    db = {
+      cores         = 2
+      memory        = 4
+      core_fraction = 20
+      hdd_size      = 10
+      hdd_type      = "network-ssd"
+    }
+  }
 }
-
-variable "vm_web_core_fraction" {
-  type    = number
-  default = 5
-}
+variable "vms_metadata" {
+    description = "Metadata for all VMs"
+    type = map(string)
+    }
