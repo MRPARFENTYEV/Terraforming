@@ -37,7 +37,7 @@ resource "yandex_vpc_subnet" "develop" {
 **Инициализируйте проект, выполните код.**
 cd ~/Terraform/ter-homeworks/03/src
 terraform init
-![[terraform0301.png]]
+![terraform apply](pictures/terraform0301.png)
 Естественно запустился с ошибками - нет значений переменных 
 создаю файл
 ter-homeworks/03/src/personal.auto.tfvars копию personal.auto.tfvars_example в нем указываю переменные token,cloud_id,folder_id
@@ -57,9 +57,9 @@ provider "yandex" {
 ```
 
 проверяю terraform plan
-![[terraform0302.png]]
+![terraform apply](pictures/terraform0302.png)
 
-![[terraform0303.png]]
+![terraform apply](pictures/terraform0303.png)
 `terraform apply`
  Quota limit vpc.networks.count exceeded
 #### РЕШЕНИЕ ПРОБЛЕМЫ С КВОТОЙ
@@ -67,15 +67,16 @@ https://console.yandex.cloud/folders/b1g60j7rdble619jl7vo/vpc/networks
 Тут удалить сети! Яндекс - самый отвратительный интерфейс в мире!
 
 команда apply после удаления подсетей и сетей 
-![[terraform0304.png]]
+![terraform apply](pictures/terraform0304.png)
 
 **Приложите скриншот входящих правил «Группы безопасности» в ЛК Yandex Cloud .**
-![[terraform0305.png]]![[teraform0306.png]]
+![terraform apply](pictures/terraform0305.png)
+
 
 ### Задание 2
 count-vm.tf
 Опишите в нём создание двух **одинаковых** ВМ web-1 и web-2 (не web-0 и web-1) с минимальными параметрами, используя мета-аргумент **count loop**
-![[pictures/terraform0306.png]]
+![terraform apply](pictures/terraform0306.png)
 
 копируем из main 
 ```
@@ -151,7 +152,7 @@ variable "each_vm" {
 ```
 
 ### Схемы и разрисовки, потому что я запутался
-![[terraform0307.png]]
+![terraform apply](pictures/terraform0307.png)
 
 ```
                       ┌─────────────────────────┐
@@ -215,9 +216,9 @@ variable "each_vm" {
 - **`locals` (опционально)** – можно хранить статические конфигурации внутри `.tf` файлов, но лучше использовать **переменные + `.tfvars`**, чтобы Terraform не спрашивал значения вручную.
   
 #### ВМ базы данных + вм web1 & web2 созданы
-![[terraform0309.png]]
+![terraform apply](pictures/terraform0309.png)
 
-![[terraform0310.png]]
+![terraform apply](pictures/terraform0310.png)
 
 #### ответственность файлов в проекте
 | Файл                                             | Смысл                                                              | Влияние на `terraform apply`                                           |
@@ -235,14 +236,14 @@ variable "each_vm" {
 
 ###  Задание 3
 
-![[terraform0311.png]]
-![[teraform0312.png]]
+![terraform apply](pictures/terraform0311.png)
+![terraform apply](pictures/terraform0312.png)
 
 ### Задание 4
 
 😭
-![[terraform0312.png]]
+![terraform apply](pictures/terraform0312.png)
 
-![[teraform0313.png]]
-![[teraform0314.png]]
+![terraform apply](pictures/teraform0313.png)
+![terraform apply](pictures/teraform0314.png)
 
