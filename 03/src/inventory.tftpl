@@ -1,0 +1,14 @@
+[web]
+%{ for host in web ~}
+${host}
+%{ endfor ~}
+
+[db]
+%{ for host in db ~}
+${host}
+%{ endfor ~}
+
+[storage]
+%{ for host in storage ~}
+${host}
+%{ endfor ~}

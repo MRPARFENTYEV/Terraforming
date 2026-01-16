@@ -30,3 +30,19 @@ variable "vpc_name" {
   default     = "develop"
   description = "VPC network&subnet name"
 }
+
+variable "each_vm" {
+  type = list(object({
+    vm_name     = string
+    cpu         = number
+    ram         = number
+    disk_volume = number
+  }))
+  description = "Список ВМ для баз данных"
+}
+
+variable "image_id" {
+  type        = string
+  description = "ID образа ОС для ВМ"
+  default     = "fd8f3vsh9g2l8b18b2mj"  # пример: Ubuntu 22.04 LTS
+}
