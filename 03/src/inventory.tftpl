@@ -1,14 +1,15 @@
-[web]
-%{ for host in web ~}
-${host}
+
+[webservers]
+%{ for vm in web ~}
+${vm.name} ansible_host=${vm.ip} fqdn=${vm.fqdn}
 %{ endfor ~}
 
-[db]
-%{ for host in db ~}
-${host}
+[databases]
+%{ for vm in db ~}
+${vm.name} ansible_host=${vm.ip} fqdn=${vm.fqdn}
 %{ endfor ~}
 
 [storage]
-%{ for host in storage ~}
-${host}
+%{ for vm in storage ~}
+${vm.name} ansible_host=${vm.ip} fqdn=${vm.fqdn}
 %{ endfor ~}
