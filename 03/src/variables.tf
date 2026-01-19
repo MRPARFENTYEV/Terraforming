@@ -44,5 +44,4 @@ variable "each_vm" {
 variable "image_id" {
   type        = string
   description = "ID образа ОС для ВМ"
-  default     = "fd8f3vsh9g2l8b18b2mj"  # пример: Ubuntu 22.04 LTS
 }
